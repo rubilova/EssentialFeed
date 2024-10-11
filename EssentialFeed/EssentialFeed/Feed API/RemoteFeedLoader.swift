@@ -26,7 +26,7 @@ public class RemoteFeedLoader {
     }
     
     public enum Result: Equatable {
-        case succeess([FeedItem])
+        case success([FeedItem])
         case failure(Error)
     }
     
@@ -41,7 +41,7 @@ public class RemoteFeedLoader {
                 case let .success(data, response):
                 do {
                     let items = try FeedItemsMapper.map(data, response)
-                    completion(.succeess(items))
+                    completion(.success(items))
                 } catch {
                     completion(.failure(.invalidData))
                 }
